@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self' http://*.kexp.org; img-src *"
+    />
+    <link rel="stylesheet" type="text/css" href="../css/reset.css" />
+    <link rel="stylesheet" type="text/css" href="./player.css" />
+  </head>
+  <body>
+    <main>
+      <img id="logo" src="../assets/kexpLogoWhite.svg" width="60" alt="KEXP" />
+
+      <img id="album-img" src="../assets/record.png" />
+
+      <div class="info-wrapper">
+        <span class="info-header">NOW PLAYING</span>
+        <div id="show-info">
+          <span id="show"></span>
+          <span id="host"></span>
+        </div>
+
+        <div id="song-info">
+          <div><span id="artist"></span><span id="song"></span></div>
+          <span id="album"></span>
+        </div>
+      </div>
+    </main>
+
+    <footer>
+      <img id="settings-icon" src="../assets/settingsGear.svg" />
+      <div id="settings">
+        <div class="setting">
+          <label>
+            <input type="checkbox" name="openAtLogin" /> Start App on Login
+          </label>
+        </div>
+        <div class="setting">
+          <label>
+            <input type="checkbox" name="iconAnimation" /> Use Icon Animation
+          </label>
+        </div>
+        <div id="exit" class="setting">
+          Exit App
+          <img src="../assets/xInCircle.svg" />
+        </div>
+        <div id="restart" class="setting">
+          Restart
+          <img src="../assets/refresh.svg" />
+        </div>
+      </div>
+    </footer>
+
+    <video
+      controls
+      id="kexp-player"
+      src="http://live-aacplus-64.kexp.org/"
+      type="audio/aac"
+    ></video>
+
+    <script src="./player.js"></script>
+  </body>
+</html>

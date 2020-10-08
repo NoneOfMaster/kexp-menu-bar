@@ -1,0 +1,70 @@
+main {
+  display: flex;
+  margin-top: 28px;
+  justify-content: center;
+  align-items: center;
+}
+
+footer {
+  display: flex;
+  margin-top: auto;
+  align-items: center;
+  height: 15px;
+  width: 100%;
+}
+
+#logo {
+  margin-left: auto;
+}
+
+#kexp-player {
+  display: none;
+}
+
+#album-img {
+  border: 1px solid #8e8e8e;
+  width: 90px;
+  height: 90px;
+  margin: 10px;
+  padding: 5px;
+}
+
+#show-info {
+  flex: 1;
+}
+
+#song-info {
+  flex-direction: column;
+}
+
+#artist {
+  font-weight: 600;
+}
+
+#settings-icon {
+  margin-left: auto;
+  order: 1;
+}
+
+#settings-icon:hover,
+.setting,
+.setting > label {
+  cursor: pointer;
+}
+
+#settings {
+  display: none;
+  flex: 1;
+  justify-content: space-around;
+  font-size: 14px;
+}
+
+.info-wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 90px;
+}
+
+.info-header {
+  font-size: 10px;
+}

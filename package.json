@@ -1,0 +1,21 @@
+{
+  "name": "kexp-menu-bar",
+  "version": "1.0.0",
+  "description": "Where the music matters... in your menu bar.",
+  "main": "main.js",
+  "author": "Russell Tepper",
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "license": "MIT",
+  "scripts": {
+    "start": "electron ."
+  },
+  "keywords": [
+    "kexp"
+  ],
+  "devDependencies": {
+    "electron": "^10.1.3"
+  }
+}

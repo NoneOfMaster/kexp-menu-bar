@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="84px" height="112px" viewBox="0 0 84 112" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 39.1 (31720) - http://www.bohemiancoding.com/sketch -->
+    <title>Group</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="logo" fill="#FFFFFF">
+            <g id="Group">
+                <polygon id="Shape" points="10.5 111.1 6.9 95.8 6.9 103.1 6.9 111.1 0.8 111.1 0.8 79.4 6.9 79.4 6.9 95.8 10.4 79.4 16.3 79.4 12.7 95.8 16.7 111.1 10.5 111.1"></polygon>
+                <polygon id="Shape" points="24.1 111.1 24.1 79.4 37.6 79.4 37.6 84.8 30.8 84.8 30.8 91.7 35.3 91.7 35.3 97.9 30.8 97.9 30.8 105.5 37.6 105.5 37.6 111.1 24.1 111.1"></polygon>
+                <rect id="Rectangle-path" x="0.7" y="8.6" width="16.1" height="64.6"></rect>
+                <rect id="Rectangle-path" x="67.2" y="15.2" width="16.1" height="58"></rect>
+                <rect id="Rectangle-path" x="45" y="0.9" width="16.1" height="72.3"></rect>
+                <rect id="Rectangle-path" x="22.8" y="26" width="16.1" height="47.2"></rect>
+                <polygon id="Shape" points="55.1 111.1 53 101.2 50.5 111.1 44.7 111.1 49.6 95.4 45 79.4 51.2 79.4 53.2 89.9 55.7 79.4 61.5 79.4 56.7 94.5 61.3 111.1"></polygon>
+                <path d="M77.2,99.2 L74.8,99.2 L74.8,111.1 L68.7,111.1 L68.7,79.4 L77.2,79.4 C80.4,79.4 83.2,81.3 83.2,85.7 L83.2,92.8 C83.2,97.3 80.4,99.2 77.2,99.2 L77.2,99.2 Z M77.4,86 C77.4,85 77,84.6 76.3,84.6 L74.8,84.6 L74.8,94.5 L76.3,94.5 C77,94.5 77.4,94.1 77.4,93.1 L77.4,86 L77.4,86 Z" id="Shape"></path>
+            </g>
+        </g>
+    </g>
+</svg>
