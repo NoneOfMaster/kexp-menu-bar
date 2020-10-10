@@ -4,18 +4,32 @@
   "description": "Where the music matters... in your menu bar.",
   "main": "main.js",
   "author": "Russell Tepper",
+  "scripts": {
+    "start": "electron .",
+    "pack": "electron-builder --dir",
+    "dist": "electron-builder"
+  },
   "repository": {
     "type": "git",
     "url": ""
   },
-  "license": "MIT",
-  "scripts": {
-    "start": "electron ."
+  "build": {
+    "appId": "com.kexp.app",
+    "productName": "KEXP Menu Bar",
+    "mac": {
+      "category": "public.app-category.music"
+    },
+    "files": [
+      "!demo${/*}"
+    ]
   },
+  "postinstall": "electron-builder install-app-deps",
+  "license": "MIT",
   "keywords": [
     "kexp"
   ],
   "devDependencies": {
-    "electron": "^10.1.3"
+    "electron": "^10.1.3",
+    "electron-builder": "^22.8.1"
   }
 }

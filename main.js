@@ -1,6 +1,9 @@
-const { app, BrowserWindow, ipcMain, Tray } = require('electron');
+const { app, BrowserWindow, ipcMain, Menu, Tray } = require('electron');
 const path = require('path');
 const fs = require('fs');
+
+app.dock.hide();
+Menu.setApplicationMenu(null);
 
 const ICON_VARIANT_COUNT = 5;
 const WINDOW_WIDTH = 600;
