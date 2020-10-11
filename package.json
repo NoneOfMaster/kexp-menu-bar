@@ -20,7 +20,7 @@
       "category": "public.app-category.music"
     },
     "files": [
-      "!demo${/*}"
+      "!readme${/*}"
     ]
   },
   "postinstall": "electron-builder install-app-deps",

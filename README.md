@@ -10,10 +10,17 @@
 
 <br/>
 
-<figure align=center>
-	<img src="readme/demo.gif">
-	<figurecaption>Icon animation can be turned off in settings.</figurecaption>
-</figure>
+<div align=center>
+	<img align=center src="readme/demo.gif">
+</div>
+<p align=center>Icon animation can be turned off in settings.</p>
+
+<br />
+
+<div align=center>
+<h3>play/pause - left click</h3>
+<h3>info - right click</h3>
+</div>
 
 <br/>
 <br/>
