@@ -107,6 +107,11 @@ const createPlayerWindow = () => {
     },
   });
   playerWindow.setWindowButtonVisibility(false);
+
+  // visibleOnFullScreen required or menu and dock will show
+  // https://github.com/electron/electron/issues/25368
+  playerWindow.setVisibleOnAllWorkspaces(true, { visibleOnFullScreen: true });
+
   playerWindow.loadFile('player/player.html');
   playerWindow.webContents.on('did-finish-load', () => sendSettings());
 
