@@ -18,15 +18,16 @@
 <br />
 
 <div align=center>
-<h3>play/pause - left click</h3>
-<h3>info - right click</h3>
+	<h3>play/pause - left click</h3>
+	<h3>info - right click</h3>
+	<h3>if stream gets lost - <img id="settings-icon" src="./assets/settingsGear.svg" /> > Restart</h3>
 </div>
 
 <br/>
 <br/>
 
 <h3 align=center>
-	<b><a href="https://github.com/NoneOfMaster/kexp-menu-bar/raw/main/release/KEXP%20Menu%20Bar-1.0.0.dmg">Download</a></b>
+	<b><a href="https://github.com/NoneOfMaster/kexp-menu-bar/releases/download/v1.0.0/KEXP.Menu.Bar-1.0.0.dmg">Download</a></b>
 </h3> 
 <p align=center>(macOS only)</span>
 
