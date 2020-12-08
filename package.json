@@ -6,6 +6,7 @@
   "author": "Russell Tepper",
   "scripts": {
     "start": "electron .",
+    "start:dev": "electron . --development",
     "build": "electron-builder --publish never",
     "release": "electron-builder"
   },

@@ -9,7 +9,7 @@ const ICON_VARIANT_COUNT = 5;
 const WINDOW_WIDTH = 600;
 const WINDOW_HEIGHT = 200;
 const DEFAULT_SETTINGS = { openAtLogin: true, iconAnimation: true };
-const DEV_MODE = false;
+const DEV_MODE = process.argv.includes('--development');
 
 const settingsPath = path.join(app.getPath('userData'), 'settings.json');
 const getSettings = setting => {
