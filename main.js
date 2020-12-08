@@ -156,4 +156,5 @@ ipcMain.on('exitApp', (event, [restart]) => {
 
 ipcMain.on('setSetting', (event, [settingHash]) => {
   settings = writeSetting(settingHash);
+  app.setLoginItemSettings({ openAtLogin: settings.openAtLogin });
 });
