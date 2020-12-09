@@ -17,8 +17,6 @@ const settingsCheckboxes = document.querySelectorAll(
   '#settings input[type=checkbox]'
 );
 
-player.oncanplay = () => api.canPlay();
-
 settingsIcon.addEventListener('click', () => toggleSettings());
 restart.addEventListener('click', () => exitApp(true));
 exit.addEventListener('click', () => exitApp());

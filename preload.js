@@ -3,7 +3,6 @@ const { contextBridge, ipcRenderer } = require('electron');
 contextBridge.exposeInMainWorld('api', {
   setSetting: setting => ipcRenderer.send('setSetting', [setting]),
   exitApp: restart => ipcRenderer.send('exitApp', [restart]),
-  canPlay: () => ipcRenderer.send('canPlay'),
 
   onPlay: fn => {
     // strip event for security, it includes 'sender'
