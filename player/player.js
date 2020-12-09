@@ -1,4 +1,7 @@
-const player = document.getElementById('kexp-player');
+const STREAM_URL = 'http://live-aacplus-64.kexp.org/';
+const player = new Audio(generateCacheBustingUrl(STREAM_URL));
+player.setAttribute('type', 'audio/acc');
+
 const songInfo = document.getElementById('song-info');
 const show = document.getElementById('show');
 const artist = document.getElementById('artist');
@@ -26,7 +29,13 @@ settingsCheckboxes.forEach(checkbox =>
   })
 );
 
-api.onPlay(() => player.play());
+api.onPlay(() => {
+  // intended to help with dropping restarted streams
+  player.src = generateCacheBustingUrl(STREAM_URL);
+  player.load();
+
+  player.play();
+});
 api.onPause(() => player.pause());
 api.onUpdateInfo(() => populateInfo());
 api.onShowSettings(shouldShow => showSettings(shouldShow));
@@ -71,3 +80,7 @@ const showSettings = shouldShow =>
   (settings.style.display = shouldShow ? 'flex' : 'none');
 
 const exitApp = restart => api.exitApp(restart);
+
+function generateCacheBustingUrl(base) {
+  return `${base}?cb=${Math.random()}`;
+}
