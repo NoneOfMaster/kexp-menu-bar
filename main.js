@@ -10,6 +10,12 @@ const WINDOW_WIDTH = 600;
 const WINDOW_HEIGHT = 200;
 const DEFAULT_SETTINGS = { openAtLogin: true, iconAnimation: true };
 const DEV_MODE = process.argv.includes('--development');
+const TESTING = process.env.NODE_ENV === 'test';
+
+const envBasedWebPreferences = {
+  enableRemoteModule: TESTING,
+  contextIsolation: !TESTING,
+};
 
 const settingsPath = path.join(app.getPath('userData'), 'settings.json');
 const getSettings = setting => {
@@ -100,8 +106,7 @@ const createPlayerWindow = () => {
     movable: false,
     show: DEV_MODE ? true : false,
     webPreferences: {
-      enableRemoteModule: false,
-      contextIsolation: true,
+      ...envBasedWebPreferences,
       worldSafeExecuteJavaScript: true,
       preload: path.join(__dirname, 'preload.js'),
     },
