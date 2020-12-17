@@ -28,7 +28,7 @@ let playing = false;
 let updateInfoInterval;
 
 const generateIconPath = idx =>
-  path.join(__dirname, 'assets', `kexpTemplate${idx}.png`);
+  path.join(__dirname, 'assets', `kexpTrayIcon_${idx}_Template.png`);
 
 const setIconLeftClick = (tray, playerWindow) => {
   tray.once('click', () => {
