@@ -1,6 +1,6 @@
 {
   "name": "kexp-menu-bar",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Where the music matters... in your menu bar.",
   "main": "main.js",
   "author": "Russell Tepper",
