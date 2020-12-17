@@ -18,9 +18,9 @@
 <br />
 
 <div align=center>
-	<h3>play/pause - left click</h3>
-	<h3>info - right click</h3>
-	<h3>if stream gets lost - <img id="settings-icon" src="./assets/settingsGear.svg" /> > Restart</h3>
+	<h3><b>play/pause</b> - <kbd>left click</kbd> or <kbd>cmd</kbd> + <kbd>F8</kbd></h3>
+	<h3><b>info</b> - <kbd>right click</kbd> or <kbd>cmd</kbd> + <kbd>F7</kbd></h3>
+	<h3><b>if stream is lost</b> - <img id="settings-icon" src="./assets/settingsGear.svg" />Restart or <kbd>cmd</kbd> + <kbd>F9</kbd></h3>
 </div>
 
 <br/>

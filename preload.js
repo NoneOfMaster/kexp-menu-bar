@@ -7,6 +7,8 @@ if (process.env.NODE_ENV === 'test') {
 contextBridge.exposeInMainWorld('api', {
   setSetting: setting => ipcRenderer.send('setSetting', [setting]),
   exitApp: restart => ipcRenderer.send('exitApp', [restart]),
+  isPlaying: () => ipcRenderer.send('isPlaying'),
+  isPaused: () => ipcRenderer.send('isPaused'),
 
   onPlay: fn => {
     // strip event for security, it includes 'sender'

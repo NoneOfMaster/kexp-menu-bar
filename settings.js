@@ -5,6 +5,7 @@ const fs = require('fs');
 const DEFAULT_SETTINGS = {
   openAtLogin: true,
   iconAnimation: true,
+  keyBindings: true,
 };
 
 const settingsPath = path.join(app.getPath('userData'), 'settings.json');

@@ -2,6 +2,9 @@ const STREAM_URL = 'http://live-aacplus-64.kexp.org/';
 const player = new Audio(generateCacheBustingUrl(STREAM_URL));
 player.setAttribute('type', 'audio/acc');
 
+player.onplay = () => api.isPlaying();
+player.onpause = () => api.isPaused();
+
 const songInfo = document.getElementById('song-info');
 const show = document.getElementById('show');
 const artist = document.getElementById('artist');
