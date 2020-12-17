@@ -1,6 +1,6 @@
 const { app, BrowserWindow, ipcMain, Menu, Tray } = require('electron');
+const { getSettings, setSettings } = require('./settings.js');
 const path = require('path');
-const fs = require('fs');
 
 app.dock.hide();
 Menu.setApplicationMenu(null);
@@ -8,34 +8,12 @@ Menu.setApplicationMenu(null);
 const ICON_VARIANT_COUNT = 5;
 const WINDOW_WIDTH = 600;
 const WINDOW_HEIGHT = 200;
-const DEFAULT_SETTINGS = { openAtLogin: true, iconAnimation: true };
 const DEV_MODE = process.argv.includes('--development');
 const TESTING = process.env.NODE_ENV === 'test';
 
 const envBasedWebPreferences = {
   enableRemoteModule: TESTING,
   contextIsolation: !TESTING,
-};
-
-const settingsPath = path.join(app.getPath('userData'), 'settings.json');
-const getSettings = setting => {
-  const settingsFile = fs.readFileSync(settingsPath, { flag: 'a+' });
-  try {
-    const settings = JSON.parse(settingsFile);
-    if (setting) return settings[setting];
-    return settings;
-  } catch {
-    return DEFAULT_SETTINGS;
-  }
-};
-const writeSetting = updatedSettings => {
-  const oldSettings = getSettings();
-  const newSettings = {
-    ...oldSettings,
-    ...updatedSettings,
-  };
-  fs.writeFileSync(settingsPath, JSON.stringify(newSettings));
-  return newSettings;
 };
 
 let tray;
@@ -160,6 +138,6 @@ ipcMain.on('exitApp', (event, [restart]) => {
 });
 
 ipcMain.on('setSetting', (event, [settingHash]) => {
-  settings = writeSetting(settingHash);
+  settings = setSettings(settingHash);
   app.setLoginItemSettings({ openAtLogin: settings.openAtLogin });
 });
