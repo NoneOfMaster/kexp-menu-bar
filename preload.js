@@ -1,10 +1,6 @@
 const { contextBridge, ipcRenderer } = require('electron');
 
-if (process.env.NODE_ENV === 'test') {
-  window.electronRequire = require;
-}
-
-contextBridge.exposeInMainWorld('api', {
+const api = {
   setSetting: setting => ipcRenderer.send('setSetting', [setting]),
   exitApp: restart => ipcRenderer.send('exitApp', [restart]),
   isPlaying: () => ipcRenderer.send('isPlaying'),
@@ -26,4 +22,11 @@ contextBridge.exposeInMainWorld('api', {
   onSettings: fn => {
     ipcRenderer.on('settings', (event, ...args) => fn(...args));
   },
-});
+};
+
+if (process.env.NODE_ENV === 'test') {
+  window.electronRequire = require;
+  window.api = api;
+} else {
+  contextBridge.exposeInMainWorld('api', api);
+}
