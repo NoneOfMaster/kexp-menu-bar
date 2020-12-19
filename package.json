@@ -7,7 +7,7 @@
   "scripts": {
     "start": "electron .",
     "start:dev": "electron . --development",
-    "test": "NODE_ENV=test mocha",
+    "test": "NODE_ENV=test ava",
     "build": "electron-builder --publish never",
     "release": "electron-builder"
   },
@@ -33,11 +33,14 @@
     "kexp"
   ],
   "devDependencies": {
-    "chai": "^4.2.0",
-    "chai-as-promised": "^7.1.1",
+    "ava": "^3.14.0",
     "electron": "^11.0.0",
     "electron-builder": "^22.8.1",
     "mocha": "^8.2.1",
     "spectron": "^13.0.0"
+  },
+  "volta": {
+    "node": "14.15.2",
+    "yarn": "1.22.10"
   }
 }

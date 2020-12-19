@@ -1,40 +1,35 @@
 const Application = require('spectron').Application;
-const chai = require('chai');
-const chaiAsPromised = require('chai-as-promised');
+const test = require('ava').serial;
 const electronPath = require('electron');
 const path = require('path');
+const wait = require('./helpers/wait').wait;
 
-// set 'should' to const for helpers like .not.exist which don't
-// make sense with the prototype extension, or use 'expect'
-chai.should();
-chai.use(chaiAsPromised);
-
-describe('Application launch', function () {
-  this.timeout(10000);
-
-  beforeEach(function () {
-    this.app = new Application({
-      path: electronPath,
-      requireName: 'electronRequire',
-      env: 'test',
-      args: [path.join(__dirname, '..')],
-    });
-    return this.app.start();
+test.before(async t => {
+  t.context.app = new Application({
+    path: electronPath,
+    requireName: 'electronRequire',
+    env: 'test',
+    args: [path.join(__dirname, '..')],
   });
+  await t.context.app.start();
+});
 
-  // might be cool but doesn't seem to work
-  // since Spectron 11.0.0 (Electron ^9.0.0)
-  // beforeEach(function () {
-  //   chaiAsPromised.transferPromiseness = this.app.transferPromiseness;
-  // });
+test.after.always(async t => await t.context.app.stop());
 
-  afterEach(function () {
-    if (this.app && this.app.isRunning()) {
-      return this.app.stop();
-    }
-  });
+test('initializes with a hidden window', async t => {
+  t.false(await t.context.app.browserWindow.isVisible());
+});
 
-  it('has one initially hidden window', function () {
-    return this.app.browserWindow.isVisible().should.eventually.be.false;
-  });
+test('plays', async t => {
+  const { app } = t.context;
+  app.browserWindow.send('play');
+  await wait(4000);
+  t.true(await app.webContents.isCurrentlyAudible());
+});
+
+test('pauses', async t => {
+  const { app } = t.context;
+  app.browserWindow.send('pause');
+  await wait(2000);
+  t.false(await app.webContents.isCurrentlyAudible());
 });
