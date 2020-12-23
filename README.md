@@ -15,15 +15,20 @@
 </div>
 <p align=center>Icon animation can be turned off in settings.</p>
 
-<br />
+<br/>
 
 <div align=center>
-	<h3><b>play/pause</b> - <kbd>left click</kbd> or <kbd>cmd</kbd> + <kbd>F8</kbd></h3>
+	<h3><b>play/stop</b> - <kbd>left click</kbd> or <kbd>cmd</kbd> + <kbd>F8</kbd></h3>
 	<h3><b>info</b> - <kbd>right click</kbd> or <kbd>cmd</kbd> + <kbd>F7</kbd></h3>
-	<h3><b>if stream is lost</b> - <img id="settings-icon" src="./assets/settingsGear.svg" />Restart or <kbd>cmd</kbd> + <kbd>F9</kbd></h3>
 </div>
 
 <br/>
+
+<div align=center>
+	<h4><b>stream is lost</b> - stop and play again</h4>
+	<h4><b>nuclear option</b> - <img id="settings-icon" src="./assets/settingsGear.svg" />Restart or <kbd>cmd</kbd> + <kbd>F9</kbd></h4>
+</div>
+
 <br/>
 
 <h3 align=center>

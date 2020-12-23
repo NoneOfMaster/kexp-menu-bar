@@ -1,5 +1,7 @@
 const { contextBridge, ipcRenderer } = require('electron');
 
+// todo: https://github.com/electron-userland/spectron/issues/693#issuecomment-748482545
+
 const api = {
   setSetting: setting => ipcRenderer.send('setSetting', [setting]),
   exitApp: restart => ipcRenderer.send('exitApp', [restart]),

@@ -1,6 +1,6 @@
 const STREAM_URL = 'http://live-aacplus-64.kexp.org/';
 const player = new Audio(generateCacheBustingUrl(STREAM_URL));
-player.setAttribute('type', 'audio/acc');
+player.setAttribute('type', 'audio/aac');
 
 player.onplay = () => api.isPlaying();
 player.onpause = () => api.isPaused();
