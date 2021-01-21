@@ -6,7 +6,8 @@ const {
   Menu,
   Tray,
 } = require('electron');
-const { getSettings, setSettings } = require('./settings.js');
+const { getSettings, setSettings } = require('./services/settings');
+const { getPlaylistInfo, getShowsInfo } = require('./services/kexpApi');
 const path = require('path');
 
 app.dock.hide();
@@ -54,7 +55,14 @@ const showHidePlayerWindow = (tray, playerWindow) => {
 
 const play = playerWindow => playerWindow.send('play');
 const pause = playerWindow => playerWindow.send('pause');
-const updateInfo = playerWindow => playerWindow.send('updateInfo');
+const updateInfo = playerWindow => {
+  getPlaylistInfo(1)
+    .then(([info]) => playerWindow.send('updatePlaylistInfo', info))
+    .catch(console.error);
+  getShowsInfo(1)
+    .then(([info]) => playerWindow.send('updateShowsInfo', info))
+    .catch(console.error);
+};
 const sendSettings = playerWindow =>
   playerWindow.send('settings', getSettings());
 
@@ -94,7 +102,7 @@ const createPlayerWindow = () => {
   // https://github.com/electron/electron/issues/25368
   playerWindow.setVisibleOnAllWorkspaces(true, { visibleOnFullScreen: true });
 
-  playerWindow.loadFile('player/player.html');
+  playerWindow.loadFile('windows/player/player.html');
   playerWindow.webContents.on('did-finish-load', () =>
     sendSettings(playerWindow)
   );

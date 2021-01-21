@@ -15,8 +15,11 @@ const api = {
   onPause: fn => {
     ipcRenderer.on('pause', (event, ...args) => fn(...args));
   },
-  onUpdateInfo: fn => {
-    ipcRenderer.on('updateInfo', (event, ...args) => fn(...args));
+  onUpdatePlaylistInfo: fn => {
+    ipcRenderer.on('updatePlaylistInfo', (event, ...args) => fn(...args));
+  },
+  onUpdateShowsInfo: fn => {
+    ipcRenderer.on('updateShowsInfo', (event, ...args) => fn(...args));
   },
   onShowSettings: fn => {
     ipcRenderer.on('showSettings', (event, ...args) => fn(...args));

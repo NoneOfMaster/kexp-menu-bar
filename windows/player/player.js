@@ -1,4 +1,6 @@
 const STREAM_URL = 'http://live-aacplus-64.kexp.org/';
+
+const generateCacheBustingUrl = base => `${base}?cb=${Math.random()}`;
 const player = new Audio(generateCacheBustingUrl(STREAM_URL));
 player.setAttribute('type', 'audio/aac');
 
@@ -30,47 +32,23 @@ settingsCheckboxes.forEach(checkbox =>
   })
 );
 
-api.onPlay(() => {
-  // intended to help with dropping restarted streams
-  player.src = generateCacheBustingUrl(STREAM_URL);
-  player.load();
+const renderPlaylistInfo = info => {
+  if (info.play_type !== 'trackplay') {
+    songInfo.style.display = 'none';
+    return;
+  }
 
-  player.play();
-});
-api.onPause(() => player.pause());
-api.onUpdateInfo(() => populateInfo());
-api.onShowSettings(shouldShow => showSettings(shouldShow));
-api.onSettings(settings => {
-  settingsCheckboxes.forEach(c => (c.checked = settings[c.name]));
-});
+  songInfo.style.display = 'flex';
 
-const populateInfo = () => {
-  fetch('https://api.kexp.org/v2/plays/?limit=1')
-    .then(response => response.json())
-    .then(data => {
-      const [info] = data.results;
+  album.innerHTML = info.album;
+  artist.innerHTML = info.artist;
+  song.innerHTML = ' – ' + info.song;
+  albumImg.src = info.thumbnail_uri || '../assets/record.png';
+};
 
-      if (info.play_type !== 'trackplay') {
-        songInfo.style.display = 'none';
-        return;
-      }
-
-      songInfo.style.display = 'flex';
-
-      album.innerHTML = info.album;
-      artist.innerHTML = info.artist;
-      song.innerHTML = ' – ' + info.song;
-      albumImg.src = info.thumbnail_uri || '../assets/record.png';
-    });
-
-  fetch('https://api.kexp.org/v2/shows/?limit=1')
-    .then(response => response.json())
-    .then(data => {
-      const [info] = data.results;
-
-      show.innerHTML = info.program_name;
-      host.innerHTML = ' with ' + info.host_names.join(' and ');
-    });
+const renderShowsInfo = info => {
+  show.innerHTML = info.program_name;
+  host.innerHTML = ' with ' + info.host_names.join(' and ');
 };
 
 const toggleSettings = () => {
@@ -82,6 +60,17 @@ const showSettings = shouldShow =>
 
 const exitApp = restart => api.exitApp(restart);
 
-function generateCacheBustingUrl(base) {
-  return `${base}?cb=${Math.random()}`;
-}
+api.onPlay(() => {
+  player.src = generateCacheBustingUrl(STREAM_URL);
+  player.load();
+
+  player.play();
+});
+
+api.onPause(() => player.pause());
+api.onUpdatePlaylistInfo(renderPlaylistInfo);
+api.onUpdateShowsInfo(renderShowsInfo);
+api.onShowSettings(showSettings);
+api.onSettings(settings => {
+  settingsCheckboxes.forEach(c => (c.checked = settings[c.name]));
+});

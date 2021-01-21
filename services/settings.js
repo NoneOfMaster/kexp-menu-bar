@@ -10,7 +10,7 @@ const DEFAULT_SETTINGS = {
 
 const settingsPath = path.join(app.getPath('userData'), 'settings.json');
 
-exports.getSettings = setting => {
+const getSettings = setting => {
   const settingsFile = fs.readFileSync(settingsPath, { flag: 'a+' });
   try {
     const settings = {
@@ -23,8 +23,9 @@ exports.getSettings = setting => {
     return DEFAULT_SETTINGS;
   }
 };
+exports.getSettings = getSettings;
 
-exports.setSettings = updatedSettings => {
+exports.getSettings = exports.setSettings = updatedSettings => {
   const oldSettings = getSettings();
   const newSettings = {
     ...oldSettings,

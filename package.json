@@ -42,5 +42,8 @@
   "volta": {
     "node": "14.15.2",
     "yarn": "1.22.10"
+  },
+  "dependencies": {
+    "node-fetch": "^2.6.1"
   }
 }
