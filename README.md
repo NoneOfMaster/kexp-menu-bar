@@ -32,7 +32,7 @@
 <br/>
 
 <h3 align=center>
-	<b><a href="https://github.com/NoneOfMaster/kexp-menu-bar/releases/download/v1.1.0/KEXP.Menu.Bar-1.1.0.dmg">Download</a></b>
+	<b><a href="https://github.com/NoneOfMaster/kexp-menu-bar/releases/download/v1.1.1/KEXP.Menu.Bar-1.1.1.dmg">Download</a></b>
 </h3> 
 <p align=center>(macOS only)</span>
 
