@@ -25,7 +25,7 @@ const getSettings = setting => {
 };
 exports.getSettings = getSettings;
 
-exports.getSettings = exports.setSettings = updatedSettings => {
+exports.setSettings = updatedSettings => {
   const oldSettings = getSettings();
   const newSettings = {
     ...oldSettings,
