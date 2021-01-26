@@ -43,7 +43,7 @@ const renderPlaylistInfo = info => {
   album.innerHTML = info.album;
   artist.innerHTML = info.artist;
   song.innerHTML = ' – ' + info.song;
-  albumImg.src = info.thumbnail_uri || '../assets/record.png';
+  albumImg.src = info.thumbnail_uri || '../../assets/record.png';
 };
 
 const renderShowsInfo = info => {
